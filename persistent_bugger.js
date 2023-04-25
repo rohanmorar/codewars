@@ -21,23 +21,20 @@ Example 3:
 12
 
 */
+/* Recursive helper function that returns the product result of multiplying the digits of a number together
+
+>>> multiplyDigits(43) 
+12
+
+*/
 function multiplyDigits(num){
-  if (num <= 9){
-    return num
-  }
-  else {
-    return num % 10 * multiplyDigits(Math.floor(num / 10))
-  }
+  return num < 10 ? num : num % 10 * multiplyDigits(Math.floor(num / 10))
 }
 
 /*
 Recursive function that returns the count of the multiplicative persistence.
 */
-function persistence(num) {
-  if (num <= 9){
-    return 0
-  }
-  else{
-    return 1 + persistence(multiplyDigits(num))
-  }
+function persistence(num){
+  return num < 10 ? 0 : 1 + persistence(multiplyDigits(num))
+}
 }
